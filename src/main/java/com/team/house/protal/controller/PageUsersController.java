@@ -37,15 +37,29 @@ public class PageUsersController {
 
     //登录
     @RequestMapping("login")
-    public String login(Users users, Model model, HttpSession session) {
-        Users user = usersService.getUsersByUsers(users);
-        if (user == null) {
-            model.addAttribute("info", "登录失败哦");
+    public String login(String inputCode, Users users, Model model, HttpSession session) {
+        //取出之前储存的短信验证码，和用户输入的作对比
+        String code = (String) session.getAttribute("code");
+        if (code == null) {
+            model.addAttribute("info", "验证码过期，请重新获取");
             return "login";
         } else {
-            session.setAttribute("user", user);
-            session.setMaxInactiveInterval(200);//200秒
-            return "redirect:getHouse";
+            if (code.equals(inputCode)) {
+                Users user = usersService.getUsersByUsers(users);
+                if (user == null) {
+                    model.addAttribute("info", "用户名或密码不正确");
+                    return "login";
+                } else {
+                    session.setAttribute("user", user);
+                    session.setMaxInactiveInterval(200);//200秒
+                    return "redirect:getHouse";
+                }
+            } else {
+                model.addAttribute("info", "验证码输入错误，请重新输入");
+                return "login";
+            }
         }
     }
+
+
 }

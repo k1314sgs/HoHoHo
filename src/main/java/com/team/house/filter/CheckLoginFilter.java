@@ -11,7 +11,7 @@ public class CheckLoginFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        System.out.println("想进去么？蹭腻了");
+        System.out.println("别蹭了，能不能男人点？");
         //强转
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
@@ -22,7 +22,8 @@ public class CheckLoginFilter implements Filter {
         System.out.println(path);
         //放行
         if (path.equals("login.jsp") || path.equals("regs.jsp")
-                ||path.equals("regs")||path.equals("login")||path.equals("checkname")) {
+                || path.equals("checkname") || path.equals("getSmsCode")
+                || path.equals("searchPage")|| path.equals("details.jsp")) {
             chain.doFilter(req, resp);
         } else {
             HttpSession session = request.getSession();

@@ -11,6 +11,21 @@
 <BODY>
 <DIV id=header class=wrap>
     <DIV id=logo><IMG src="../images/logo.gif"></DIV>
+    <DIV class=search>
+
+        <c:if test="${sessionScope.user==null}">
+            <LABEL class="ui-green searchs">
+                <a href="login.jsp" target="_self">登录呀沙雕</a>
+            </LABEL>
+        </c:if>
+        <c:if test="${sessionScope.user!=null}">
+            欢迎,小${sessionScope.user.name}
+            <LABEL class=ui-green>
+                <INPUT onclick='document.location="login.jsp"' value="退  出" type=button>
+            </LABEL>
+        </c:if>
+
+    </DIV>
 </DIV>
 <DIV id=navbar class=wrap>
     <DL class="search clearfix">
