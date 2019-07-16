@@ -90,7 +90,7 @@
             <TR>
                 <TD class=house-thumb>
                     <span><A href="details" target="_blank">
-                        <img src="http://localhost:80${house.path}" width="100" height="75" alt="">
+                        <img src="http://localhost:80/${house.path}" width="100" height="75" alt="">
                     </a></span></TD>
                 <TD>
                     <DL>

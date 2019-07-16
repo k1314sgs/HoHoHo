@@ -38,14 +38,6 @@
         </dependency>
         <!-- Log4j end -->
 
-        <!-- commons-logging  start -->
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging-api</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <!-- commons-logging  end -->
-
 
         <!-- 引用c3p0 依赖 start-->
         <dependency>
@@ -230,12 +222,6 @@
             <version>1.1</version>
         </dependency>
 
-        <!--httpclient支持-->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>4.4.10</version>
-        </dependency>
 
 
     </dependencies>
